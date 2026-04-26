@@ -39,10 +39,11 @@ public class TimeCapsuleService {
     }
 
     @Transactional
-    public void addUserInTimeCapsule(String userEmail, TimeCapsuleEntity timeCapsuleEntity) {
+    public void addUserInTimeCapsule(String userName, String userEmail, TimeCapsuleEntity timeCapsuleEntity) {
 
         UsersTimeCapsuleEntity userEntity = new UsersTimeCapsuleEntity(
             timeCapsuleEntity,
+            userName,
             userEmail
         );
 

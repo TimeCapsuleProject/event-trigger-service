@@ -34,12 +34,14 @@ public class EventConsumerIntegrationTest {
         // Given
         String timeCapsuleId = "test-capsule-1";
         String timeCapsuleName = "Test Capsule";
+        String ownerName = "owner";
         String ownerEmail = "owner@example.com";
         LocalDate openingDate = LocalDate.now().plusDays(1);
 
         CapsuleCreationNotification notification = new CapsuleCreationNotification();
         notification.setTimeCapsuleId(timeCapsuleId);
         notification.setTimeCapsuleName(timeCapsuleName);
+        notification.setOwnerName(ownerName);
         notification.setOwnerEmail(ownerEmail);
         notification.setOpeningDate(openingDate);
 
@@ -64,12 +66,14 @@ public class EventConsumerIntegrationTest {
         // First, create a capsule
         String timeCapsuleId = "test-capsule-2";
         String timeCapsuleName = "Test Capsule 2";
+        String ownerName = "owner2";
         String ownerEmail = "owner2@example.com";
         LocalDate openingDate = LocalDate.now().plusDays(1);
 
         CapsuleCreationNotification creationNotification = new CapsuleCreationNotification();
         creationNotification.setTimeCapsuleId(timeCapsuleId);
         creationNotification.setTimeCapsuleName(timeCapsuleName);
+        creationNotification.setOwnerName(ownerName);
         creationNotification.setOwnerEmail(ownerEmail);
         creationNotification.setOpeningDate(openingDate);
 
@@ -77,10 +81,12 @@ public class EventConsumerIntegrationTest {
         await().until(() -> timeCapsuleRepository.findById(timeCapsuleId).isPresent());
 
         // Now, send new message from a new user
+        String senderUsername = "sender";
         String senderEmail = "sender@example.com";
 
         NewMessageNotification messageNotification = new NewMessageNotification();
         messageNotification.setTimeCapsuleId(timeCapsuleId);
+        messageNotification.setSenderUsername(senderUsername);
         messageNotification.setSenderEmail(senderEmail);
 
         // When
@@ -99,12 +105,14 @@ public class EventConsumerIntegrationTest {
         // First, create a capsule and add a user
         String timeCapsuleId = "test-capsule-3";
         String timeCapsuleName = "Test Capsule 3";
+        String ownerName = "owner3";
         String ownerEmail = "owner3@example.com";
         LocalDate openingDate = LocalDate.now().plusDays(1);
 
         CapsuleCreationNotification creationNotification = new CapsuleCreationNotification();
         creationNotification.setTimeCapsuleId(timeCapsuleId);
         creationNotification.setTimeCapsuleName(timeCapsuleName);
+        creationNotification.setOwnerName(ownerName);
         creationNotification.setOwnerEmail(ownerEmail);
         creationNotification.setOpeningDate(openingDate);
 
@@ -132,12 +140,14 @@ public class EventConsumerIntegrationTest {
         // First, create a capsule and add a user
         String timeCapsuleId = "test-capsule-4";
         String timeCapsuleName = "Test Capsule 4";
+        String ownerName = "owner4";
         String ownerEmail = "owner4@example.com";
         LocalDate openingDate = LocalDate.now().plusDays(1);
 
         CapsuleCreationNotification creationNotification = new CapsuleCreationNotification();
         creationNotification.setTimeCapsuleId(timeCapsuleId);
         creationNotification.setTimeCapsuleName(timeCapsuleName);
+        creationNotification.setOwnerName(ownerName);
         creationNotification.setOwnerEmail(ownerEmail);
         creationNotification.setOpeningDate(openingDate);
 

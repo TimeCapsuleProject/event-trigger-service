@@ -14,9 +14,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class UsersTimeCapsuleEntity {
 
-    public UsersTimeCapsuleEntity(TimeCapsuleEntity timeCapsule, String emailUser) {
+    public UsersTimeCapsuleEntity(TimeCapsuleEntity timeCapsule, String userName, String userEmail) {
         this.timeCapsule = timeCapsule;
-        this.userEmail = emailUser;
+        this.userName = userName;
+        this.userEmail = userEmail;
     }
 
     @Id
